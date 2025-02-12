@@ -9,24 +9,7 @@ function HomeRest() {
                 <div className="text-center text-gray-500">Detect video audio and images are fake or real</div>
             </div>
 
-            <div className="flex flex-col gap-4 mt-3">
-            <div className="flex flex-row gap-4">
-                <div>
-                    <img src={"./fake1.jpg"} width={200} height={200} className="hover:scale-105 transition-all duration-300" alt="" />
-                    <p className="text-center text-gray-500">
-                        Fake
-                    </p>
-                </div>
-                <div className="flex items-center justify-center">
-                    <img src="./arrow.png" width={20} height={20} className="animate-bounce" alt="" />
-                </div>
-                <div>
-                    <img src={"./real1.jpg"} width={200} height={200} className="hover:scale-105 transition-all duration-300" alt="" />
-                    <p className="text-center text-gray-500">
-                        Real
-                    </p>
-                </div>
-            </div>
+            <div className="flex flex-col gap-4 mt-10">
             <div className="flex flex-row gap-4">
                 <div>
                     <img src={"./real2.jpg"} width={200} height={200} className="hover:scale-105 transition-all duration-300" alt="" />
