@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Loading from "./Loading";
-import RealComponent from "./realComponent";
+import RealComponent from "./RealComponent";
 
 function VideoUpload() {
     const [loading, setLoading] = useState(false);
@@ -26,6 +26,26 @@ function VideoUpload() {
             setLoading(false);
             setResult("Real");
         }, 5000); 
+    }
+
+    async function handleFakeUpload(){
+        if (!videoFile) {
+            alert("Please select a video first.");
+            return;
+        }
+
+        setLoading(true);
+        setResult(null);
+
+        // Capture thumbnail from video
+        extractThumbnail(videoFile, (imageUrl) => {
+            setThumbnail(imageUrl);
+        });
+
+        setTimeout(() => {
+            setLoading(false);
+            setResult("Fake");
+        }, 5000);
     }
 
     function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -65,7 +85,7 @@ function VideoUpload() {
             {loading ? (
                 <Loading />
             ) : result ? (
-                <RealComponent thumbnail={thumbnail} />
+                <RealComponent result={result} thumbnail={thumbnail} />
             ) : (
                 <>
                     <div className="text-center text-2xl font-bold text-fuchsia-500 mt-3"> 
@@ -79,8 +99,9 @@ function VideoUpload() {
                             </label>
                             <p>{videoFile ? videoFile.name : ""}</p>
                         </div>
-                        <div>
+                        <div className="flex justify-center gap-4">
                             <button className="bg-fuchsia-500 text-white p-2 rounded-md" onClick={handleUpload}>Upload</button>
+                            <button className="bg-fuchsia-500 text-white p-2 rounded-md" onClick={handleFakeUpload}>Save</button>
                         </div>
                     </div>
                 </>

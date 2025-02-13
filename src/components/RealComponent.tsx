@@ -1,6 +1,6 @@
 
 
-function RealComponent({thumbnail} : {thumbnail : string | null}) {
+function RealComponent({thumbnail , result} : {thumbnail : string | null , result : string | null}) {
   return (
         <div className='mx-auto mt-30'>
                 <div className='flex flex-col justify-center items-center bg-gray-200 w-100 h-100 '>
@@ -13,7 +13,7 @@ function RealComponent({thumbnail} : {thumbnail : string | null}) {
                     <p className='font-bold text-center'>
                         Accuracy : 90 %
                     </p>
-                    <p className='font-bold text-center'> Video is Real</p>
+                    <p className='font-bold text-center'> Video is {result}</p>
                 </div>
             </div>
   )
